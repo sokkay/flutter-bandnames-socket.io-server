@@ -18,7 +18,14 @@
                 console.log('Deconectado del servidor');
             });
 
-            socket.emit('mensaje',{});
+            socket.on('nuevo-mensaje', (payload) => {
+                console.log('nuevo mensaje:', payload);
+            });
+
+            socket.on('active-bands', (payload) => {
+                console.clear();
+                console.table(payload);
+            });
 
         </script>
     </body>
